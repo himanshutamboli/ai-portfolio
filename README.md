@@ -1,9 +1,10 @@
 # AI Engineering Portfolio — Himanshu Tamboli
 
-Six repositories that walk the **full lifecycle of shipping AI products** — from product
+Seven repositories that walk the **full lifecycle of shipping AI products** — from product
 analytics, to a calibrated ML service, to a grounded RAG assistant, to LLM observability, to a
-guarded autonomous agent — each built as production software with tests, CI, honest evaluation,
-and docs, on one shared engineering baseline.
+guarded autonomous agent, to the PM growth-analytics view that ties usage to unit economics —
+each built as production software with tests, CI, honest evaluation, and docs, on one shared
+engineering baseline.
 
 Not notebooks. Not demos-that-only-run-on-my-machine. Every repo is `uv sync && pytest`-green,
 CI-gated, and shippable.
@@ -25,8 +26,10 @@ CI-gated, and shippable.
 ```
 
 The two flagships are deliberately connected: **`agentic-workflow` emits traces that
-`llm-observatory` records** — a systems-level demonstration that these aren't six isolated
-exercises but a coherent view of how AI products are actually operated.
+`llm-observatory` records** — a systems-level demonstration that these aren't isolated
+exercises but a coherent view of how AI products are actually operated. And
+**`ai-product-analytics` is the product-side counterpart to `llm-observatory`** — the same kind
+of telemetry, read for growth and unit economics instead of system health.
 
 ---
 
@@ -39,14 +42,16 @@ exercises but a coherent view of how AI products are actually operated.
 | 3 | [rag-knowledge-assistant](https://github.com/himanshutamboli/rag-knowledge-assistant) | Grounded RAG over a 21-article corpus: chunking, retrieval, cited generation with refusal, a streaming chat UI. | **recall@3 1.0, MRR 0.94**; faithfulness judge **100% agreement** with human labels. |
 | 4 | [llm-observatory](https://github.com/himanshutamboli/llm-observatory) ★ | **Flagship.** LLM observability platform: trace/span/eval data model (SQLAlchemy + Alembic), instrumentation SDK, offline + online eval, regression detection, alerting, dashboard. | One-command demo surfaces a **caught regression** end to end; 41 tests. |
 | 5 | [agentic-workflow](https://github.com/himanshutamboli/agentic-workflow) ★ | **Flagship.** AIOps incident-triage agent: planner/executor loop over tools, guardrails (retries, cost cap, human-in-the-loop), instrumented by `llm-observatory`. | **Task-success-rate 83%** + a **false-rollback** metric; an honest, measured eval. |
-| 6 | [ai-project-template](https://github.com/himanshutamboli/ai-project-template) | The shared baseline every repo above is forged from: `uv`, `ruff`, `pytest`, `pre-commit`, GitHub Actions CI, src layout. | Zero-to-green new project in minutes. |
+| 6 | [ai-product-analytics](https://github.com/himanshutamboli/ai-product-analytics) | GenAI product **growth analytics**: adoption, retention cohorts, feature funnels, AI quality & CSAT, and unit economics in a Streamlit dashboard — the PM counterpart to `llm-observatory`. | Surfaces a **v2 launch that lifts capability but steps cost/session +70%** — the PM tradeoff, made explicit. |
+| 7 | [ai-project-template](https://github.com/himanshutamboli/ai-project-template) | The shared baseline every repo above is forged from: `uv`, `ruff`, `pytest`, `pre-commit`, GitHub Actions CI, src layout. | Zero-to-green new project in minutes. |
 
 ---
 
 ## What this portfolio demonstrates
 
 - **Product & data sense** — defining the right metric and spotting when a metric lies
-  (`product-analytics-mini`).
+  (`product-analytics-mini`), and reading a GenAI product's growth, retention, and **unit
+  economics** to manage the capability-vs-cost tradeoff (`ai-product-analytics`).
 - **ML rigor** — honest evaluation (PR-AUC over accuracy on imbalanced data), calibration,
   decisions driven by *business cost*, and drift monitoring (`churn-risk-service`).
 - **LLM applications** — retrieval quality measured (recall@k / MRR), grounded generation with
