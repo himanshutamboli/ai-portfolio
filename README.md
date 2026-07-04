@@ -33,6 +33,31 @@ of telemetry, read for growth and unit economics instead of system health.
 
 ---
 
+## 🛰️ Phase 2 — Enterprise AI Control Plane
+
+The seven repos above are Phase 1. **Phase 2 unifies them into one platform:** the
+**[Enterprise AI Control Plane](https://github.com/himanshutamboli/enterprise-ai-control-plane)** —
+a modular-monolith backend for running enterprise AI in production, where the Phase-1 flagships
+become *modules* (observability ← `llm-observatory`, agents ← `agentic-workflow`, cost/analytics ←
+`ai-product-analytics`) rather than standalone demos.
+
+Six modules behind one **multi-tenant, RBAC'd** API with an operator dashboard:
+
+```
+core (orgs · users · RBAC · tenant isolation)
+  → gateway (provider-agnostic routing + per-call cost metering)
+  → prompts (versioned registry, run-by-reference)
+  → evals (score outputs: mean-score / pass-rate)
+  → observability (traces + spans)
+  → dashboard (cross-org operator view)
+```
+
+Everything runs offline and in CI (deterministic mock providers) with real LLMs as drop-ins —
+**42 tests, 7 ADRs, one FastAPI app.** This is the "I can run an AI engineering effort like an
+enterprise product org" artifact; the Phase-1 repos are the depth behind each module.
+
+---
+
 ## The projects
 
 | # | Repo | What it is | Headline result |
