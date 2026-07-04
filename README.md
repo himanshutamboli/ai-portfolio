@@ -42,7 +42,7 @@ of telemetry, read for growth and unit economics instead of system health.
 | 3 | [rag-knowledge-assistant](https://github.com/himanshutamboli/rag-knowledge-assistant) | Grounded RAG over a 21-article corpus: chunking, retrieval, cited generation with refusal, a streaming chat UI. | **recall@3 1.0, MRR 0.94**; faithfulness judge **100% agreement** with human labels. |
 | 4 | [llm-observatory](https://github.com/himanshutamboli/llm-observatory) ★ | **Flagship.** LLM observability platform: trace/span/eval data model (SQLAlchemy + Alembic), instrumentation SDK, offline + online eval, regression detection, alerting, dashboard. | One-command demo surfaces a **caught regression** end to end; 41 tests. |
 | 5 | [agentic-workflow](https://github.com/himanshutamboli/agentic-workflow) ★ | **Flagship.** AIOps incident-triage agent: planner/executor loop over tools, guardrails (retries, cost cap, human-in-the-loop), instrumented by `llm-observatory`. | **Task-success-rate 83%** + a **false-rollback** metric; an honest, measured eval. |
-| 6 | [ai-product-analytics](https://github.com/himanshutamboli/ai-product-analytics) | GenAI product **growth analytics**: adoption, retention cohorts, feature funnels, AI quality & CSAT, and unit economics in a Streamlit dashboard — the PM counterpart to `llm-observatory`. | Surfaces a **v2 launch that lifts capability but steps cost/session +70%** — the PM tradeoff, made explicit. |
+| 6 | [ai-product-analytics](https://github.com/himanshutamboli/ai-product-analytics) | GenAI product **growth analytics**: adoption, retention cohorts, feature funnels, AI quality & CSAT, unit economics, and **A/B experimentation** (two-proportion z-tests, CIs, ship/stop decisions) — the PM counterpart to `llm-observatory`. | Surfaces a **v2 launch that lifts capability but steps cost/session +70%**, and calls experiments on **statistical significance**, not eyeballed deltas. |
 | 7 | [ai-project-template](https://github.com/himanshutamboli/ai-project-template) | The shared baseline every repo above is forged from: `uv`, `ruff`, `pytest`, `pre-commit`, GitHub Actions CI, src layout. | Zero-to-green new project in minutes. |
 
 ---
@@ -51,7 +51,8 @@ of telemetry, read for growth and unit economics instead of system health.
 
 - **Product & data sense** — defining the right metric and spotting when a metric lies
   (`product-analytics-mini`), and reading a GenAI product's growth, retention, and **unit
-  economics** to manage the capability-vs-cost tradeoff (`ai-product-analytics`).
+  economics** — plus running **A/B experiments** to ship on statistical evidence rather than
+  eyeballed deltas (`ai-product-analytics`).
 - **ML rigor** — honest evaluation (PR-AUC over accuracy on imbalanced data), calibration,
   decisions driven by *business cost*, and drift monitoring (`churn-risk-service`).
 - **LLM applications** — retrieval quality measured (recall@k / MRR), grounded generation with
